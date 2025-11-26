@@ -1,40 +1,8 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard';
+import { services } from '../data/services';
 
 export default function Services() {
-  const data = [
-    {
-      badge: 'BP',
-      title: 'Bone & fracture care',
-      desc: 'Precision fracture management, bone density testing, and regenerative support for strong healing. · ትክክለኛ የአጥንት ስብራት እንክብካቤ እና መመርመሪያዎች.'
-    },
-    {
-      badge: 'JT',
-      title: 'Joint & arthritis relief',
-      desc: 'Custom plans for knee, hip, and shoulder pain using injections, bracing, and guided therapy. · ለጅማት ህመም የተገጠመ እቅድ እና መቀጠል መከታተያ.'
-    },
-    {
-      badge: 'SP',
-      title: 'Spine alignment program',
-      desc: 'Minimally invasive spine procedures, posture training, and targeted pain modulation with bilingual coaching.'
-    },
-    {
-      badge: 'PT',
-      title: 'Physiotherapy studio',
-      desc: 'Hands-on therapy, Pilates-based conditioning, and return-to-sport coaching with motion tracking for Addis runners.'
-    },
-    {
-      badge: 'SM',
-      title: 'Sports medicine',
-      desc: 'Performance evaluations, injury prevention labs, and rapid return-to-play protocols for athletes across Ethiopia.'
-    },
-    {
-      badge: 'VR',
-      title: 'Virtual recovery',
-      desc: 'Telehealth check-ins, Amharic guidance, and progress dashboards available to diaspora patients abroad.'
-    }
-  ];
-
   return (
     <section className="py-24">
       <div className="container space-y-12">
@@ -49,8 +17,14 @@ export default function Services() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {data.map((service) => (
-            <ServiceCard key={service.title} badge={service.badge} title={service.title}>
+          {services.map((service) => (
+            <ServiceCard
+              key={service.title}
+              badge={service.badge}
+              title={service.title}
+              image={service.image}
+              imageAlt={service.imageAlt}
+            >
               {service.desc}
             </ServiceCard>
           ))}
@@ -80,3 +54,4 @@ export default function Services() {
     </section>
   );
 }
+

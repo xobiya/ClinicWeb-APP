@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col bg-base text-ink">
+    <div className="flex min-h-screen flex-col text-ink">
       <Navbar />
       <main className="flex-1 space-y-28 pb-24 pt-24 md:pt-32">
         <section id="home" className="scroll-mt-32">

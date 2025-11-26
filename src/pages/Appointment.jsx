@@ -1,11 +1,6 @@
 import React from 'react';
 import AppointmentForm from '../components/AppointmentForm';
-
-const guide = [
-  { label: 'Clinic address', value: 'Bole, Airport Road, Addis Ababa', href: 'https://maps.app.goo.gl/3n1L7TiZLFYcLqfU7' },
-  { label: 'Direct line', value: '+251 (0)11 123 4567', href: 'tel:+251111234567' },
-  { label: 'WhatsApp', value: '+251 91 123 4567', href: 'https://wa.me/251911234567' }
-];
+import { appointmentGuide } from '../data/appointment';
 
 export default function Appointment() {
   return (
@@ -21,7 +16,7 @@ export default function Appointment() {
           </p>
 
           <div className="grid gap-4 sm:grid-cols-3">
-            {guide.map((item) => (
+            {appointmentGuide.map((item) => (
               <a
                 key={item.label}
                 href={item.href}

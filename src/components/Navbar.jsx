@@ -1,13 +1,5 @@
 import React from 'react';
-
-const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#doctors', label: 'Doctors' },
-  { href: '#appointment', label: 'Appointment' },
-  { href: '#contact', label: 'Contact' }
-];
+import { navLinks } from '../data/navigation';
 
 export default function Navbar() {
   return (
@@ -19,7 +11,7 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden items-center gap-1 md:flex">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -32,10 +24,10 @@ export default function Navbar() {
 
         <details className="relative md:hidden">
           <summary className="list-none cursor-pointer rounded-full border border-slate-200/80 px-4 py-2 text-sm font-medium text-ink/80 transition hover:border-primary/40 hover:text-primary">
-            Menu · ምናሌ
+            Menu · 
           </summary>
           <div className="absolute right-0 mt-3 w-52 rounded-2xl border border-slate-200/80 bg-card/95 p-2 shadow-card">
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}

@@ -1,4 +1,6 @@
 import React from 'react';
+import { footerCtas, footerLinks } from '../data/footer';
+import { clinicAddress, clinicHours } from '../data/contact';
 
 export default function Footer() {
   return (
@@ -10,31 +12,36 @@ export default function Footer() {
             <p className="text-sm text-ink/60">ከአዲስ አበባ ልማድ ጋር የሚዋሃዱ የአጥንት እና የጅማት አገልግሎቶች | Specialised orthopedic, spine, and joint care centred on Ethiopian families.</p>
           </div>
           <div className="flex flex-wrap gap-3 text-sm text-ink/70">
-            <a href="#home" className="hover:text-primary">Home · መነሻ</a>
-            <a href="#about" className="hover:text-primary">About · ስለ እኛ</a>
-            <a href="#services" className="hover:text-primary">Services · አገልግሎቶች</a>
-            <a href="#appointment" className="hover:text-primary">Appointments · ቀጠሮ</a>
-            <a href="#contact" className="hover:text-primary">Contact · እውቂያ</a>
+            {footerLinks.map((link) => (
+              <a key={link.href} href={link.href} className="hover:text-primary">
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
 
         <div className="space-y-3 text-sm text-ink/70">
-          <div className="text-ink font-semibold">Bole, Airport Road, Addis Ababa</div>
-          <div>ሰኞ – አርብ · 2፡00 – 12፡00 ጠዋት (8:00 AM – 6:00 PM)</div>
-          <div>ቅዳሜ · 3፡00 – 9፡00 ጠዋት (9:00 AM – 3:00 PM)</div>
+          <div className="text-ink font-semibold">{clinicAddress}</div>
+          <div className="space-y-1">
+            {clinicHours.map((slot) => (
+              <div key={slot.label}>
+                <div>{slot.label}</div>
+                <p>{slot.time}</p>
+              </div>
+            ))}
+          </div>
           <div className="flex flex-wrap gap-3 pt-2">
-            <a
-              href="tel:+251111234567"
-              className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-brand-lg transition hover:-translate-y-0.5 hover:bg-primary/90"
-            >
-              Call Clinic · ይደውሉ
-            </a>
-            <a
-              href="https://wa.me/251911234567"
-              className="inline-flex items-center rounded-full border border-secondary/50 px-5 py-2 text-sm font-semibold text-secondary transition hover:-translate-y-0.5 hover:border-secondary/70 hover:bg-secondary/10"
-            >
-              WhatsApp
-            </a>
+            {footerCtas.map((cta) => (
+              <a
+                key={cta.href}
+                href={cta.href}
+                className={cta.primary
+                  ? 'inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-brand-lg transition hover:-translate-y-0.5 hover:bg-primary/90'
+                  : 'inline-flex items-center rounded-full border border-secondary/50 px-5 py-2 text-sm font-semibold text-secondary transition hover:-translate-y-0.5 hover:border-secondary/70 hover:bg-secondary/10'}
+              >
+                {cta.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>

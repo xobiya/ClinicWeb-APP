@@ -1,90 +1,34 @@
 import React from 'react';
+import { gallery, strengths, testimonials, trustBadges } from '../data/home';
+
+const strengthIconMap = {
+  check: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-6 w-6 text-primary">
+      <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M5 12l4 4L19 6" />
+    </svg>
+  ),
+  team: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-6 w-6 text-primary">
+      <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
+      <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M6 21v-1a4 4 0 014-4h4a4 4 0 014 4v1" />
+    </svg>
+  ),
+  clinic: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-6 w-6 text-primary">
+      <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 8h18v11H3z" />
+      <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 12h18" />
+      <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M7 8V6a5 5 0 0110 0v2" />
+    </svg>
+  ),
+  clock: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-6 w-6 text-primary">
+      <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
+      <circle cx="12" cy="12" r="9" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+};
 
 export default function Home() {
-  const trustBadges = [
-    { label: 'MoH Ethiopia accredited', detail: 'Licensed by the Federal Ministry of Health · በፌዴራል የጤና ሚኒስቴር ምስክር የተፈቀደ' },
-    { label: 'Same-week diagnostics', detail: 'MRI, X-ray, and gait labs in Addis Ababa for rapid answers' },
-    { label: '97% patient satisfaction', detail: '4.9/5 satisfaction from Ethiopian and diaspora families' }
-  ];
-
-  const strengths = [
-    {
-      title: 'Evidence-based treatment',
-      copy: 'We combine Ethiopian clinical expertise with digital tracking so you always know the next milestone.',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-6 w-6 text-primary">
-          <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M5 12l4 4L19 6" />
-        </svg>
-      )
-    },
-    {
-      title: 'Specialist-led teams',
-      copy: 'Orthopedic surgeon, physiotherapist, and pain specialist collaborate weekly · ሐኪሞች በተባበሩ ይከታተላሉ.',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-6 w-6 text-primary">
-          <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
-          <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M6 21v-1a4 4 0 014-4h4a4 4 0 014 4v1" />
-        </svg>
-      )
-    },
-    {
-      title: 'Comfort-first environment',
-      copy: 'Private recovery suites and warm Ethiopian hospitality keep every visit calm and welcoming.',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-6 w-6 text-primary">
-          <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 8h18v11H3z" />
-          <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 12h18" />
-          <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M7 8V6a5 5 0 0110 0v2" />
-        </svg>
-      )
-    },
-    {
-      title: 'Transparent follow-up',
-      copy: 'Amharic & English follow-ups, mobile reminders, and WhatsApp updates keep you on track.',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-6 w-6 text-primary">
-          <path strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
-          <circle cx="12" cy="12" r="9" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: 'I walked in with severe knee pain and left with a plan that made sense. Within weeks I could climb stairs comfortably again.',
-      name: 'Selam M.',
-      detail: 'Knee arthritis care (Addis Ababa)',
-      photo: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=1'
-    },
-    {
-      quote: 'Their spine program blended hands-on therapy and digital exercises. The team checked on my progress every few days.',
-      name: 'Daniel P.',
-      detail: 'Spine rehabilitation (Bahir Dar)',
-      photo: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=1'
-    },
-    {
-      quote: 'From booking to post-op coaching, everything was warm, organised, and reassuring. I always felt I had support.',
-      name: 'Hanna L.',
-      detail: 'Shoulder surgery recovery (Diaspora patient)',
-      photo: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=1'
-    }
-  ];
-
-  const gallery = [
-    {
-      src: 'https://images.pexels.com/photos/8460039/pexels-photo-8460039.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1',
-      alt: 'Clinic reception with modern seating'
-    },
-    {
-      src: 'https://images.pexels.com/photos/5722168/pexels-photo-5722168.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1',
-      alt: 'Orthopedic specialist reviewing imaging with patient'
-    },
-    {
-      src: 'https://images.pexels.com/photos/6129504/pexels-photo-6129504.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1',
-      alt: 'Physiotherapist guiding patient through exercises'
-    }
-  ];
 
   return (
     <div className="space-y-28">
@@ -181,15 +125,19 @@ export default function Home() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {strengths.map((item) => (
-              <div key={item.title} className="flex gap-4 rounded-[20px] border border-slate-200/70 bg-card p-6 shadow-card">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">{item.icon}</div>
-                <div>
-                  <div className="text-base font-semibold text-ink">{item.title}</div>
-                  <p className="mt-2 text-sm leading-relaxed text-ink/70">{item.copy}</p>
+            {strengths.map((item) => {
+              const Icon = strengthIconMap[item.icon];
+
+              return (
+                <div key={item.id} className="flex gap-4 rounded-[20px] border border-slate-200/70 bg-card p-6 shadow-card">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">{Icon ? <Icon /> : null}</div>
+                  <div>
+                    <div className="text-base font-semibold text-ink">{item.title}</div>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/70">{item.copy}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
