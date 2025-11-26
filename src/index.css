@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #1e293b;
+    line-height: 1.65;
+    @apply min-h-screen bg-base antialiased;
+    background-color: #f1f5f9;
+    background-image:
+      radial-gradient(1200px at -5% -15%, rgba(10, 123, 194, 0.16), transparent 62%),
+      radial-gradient(1400px at 115% -10%, rgba(15, 185, 177, 0.18), transparent 65%),
+      radial-gradient(1600px at 50% 115%, rgba(252, 211, 77, 0.2), transparent 70%),
+      linear-gradient(130deg, rgba(240, 249, 255, 0.92), rgba(248, 250, 252, 0.85));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", "Inter", system-ui, sans-serif;
+    color: #1e293b;
+    letter-spacing: -0.01em;
+  }
+
+  p,
+  li {
+    font-size: 1rem;
+  }
+
+  details > summary::-webkit-details-marker,
+  details > summary::marker {
+    display: none;
+  }
+}
+
+.container {
+  @apply mx-auto w-full max-w-6xl px-6;
+}
+
