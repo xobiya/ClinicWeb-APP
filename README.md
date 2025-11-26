@@ -1,89 +1,77 @@
-# GitHub Codespaces ♥️ React
+# BoneCare Clinic Web App
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+Modern, bilingual (English & Amharic) marketing site for **BoneCare Clinic**, an orthopedic and bone health specialist located in Addis Ababa. The experience uses a clean glassmorphism aesthetic, Ethiopian-inspired color palette, and reliable imagery to communicate trust and accessibility for local patients.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+## Features
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+- Multi-page React experience (Home, About, Services, Doctors, Appointment, Contact)
+- Tailwind CSS utility styling with custom Ethiopian color tokens and shadows
+- Bilingual UI copy and CTAs (English/Amharic) with localized contact details
+- Appointment form with inline validation and call/WhatsApp shortcuts
+- Optimized gradient background and high-quality imagery hosted on Pexels
+- Responsive layout optimized for mobile, tablet, and desktop breakpoints
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+## Tech Stack
 
-## BoneCare Clinic — local development
+- React 18 + Vite 6
+- Tailwind CSS 3
+- React Router (client-side navigation)
+- PostCSS + Autoprefixer
 
-This workspace is scaffolded as a simple React + Vite frontend for the "BoneCare Clinic" website. It uses Tailwind CSS for styling and React Router for navigation.
-
-To start locally:
+## Getting Started
 
 ```bash
-# 1) Install dependencies
+# Install dependencies
 npm install
 
-# 2) Run the dev server (Vite)
-npm start
+# Start the local dev server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-Notes:
-- Tailwind is configured in `tailwind.config.cjs` and PostCSS in `postcss.config.cjs`.
-- If you want to submit appointments to an API, update the URL in `src/components/AppointmentForm.jsx`.
-- Add real images to `public/` and reference them from pages/components.
+Open the dev server at `http://localhost:5173` (default Vite port).
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+```
+├── public/                 # Manifest, icons, static assets
+└── src/
+	├── components/         # Reusable UI components (Navbar, Footer, Cards, forms)
+	├── pages/              # Route-level views (Home, Services, Doctors, etc.)
+	├── App.jsx             # Route definitions & layout shell
+	├── index.jsx           # React entry point
+	└── index.css           # Global Tailwind layers + background gradients
+```
 
-### `npm start`
+Key configuration files:
+- `tailwind.config.cjs` — custom colors, fonts, shadows, and content paths.
+- `postcss.config.cjs` — Tailwind + Autoprefixer pipeline.
+- `vite.config.js` — Vite bundler configuration.
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+## Customization
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+- **Brand colors**: adjust in `tailwind.config.cjs` under `extend.colors`.
+- **Background gradient**: tweak radial/linear layers in `src/index.css`.
+- **Copy & localization**: update English/Amharic text inside components and pages.
+- **Images**: swap Pexels URLs in `src/pages/*` to point at your own hosted images.
+- **Form handling**: wire `AppointmentForm.jsx` to a backend API or service as needed.
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+## Testing & Linting
 
-### `npm test`
+- `npm test` — runs the default React Testing Library setup from Vite. Extend suites in `src/App.test.jsx`.
+- Integrate ESLint/Prettier by adding config files if code quality checks are required.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deployment
 
-### `npm run build`
+The production build emits static assets in `dist/`. Deploy the folder to any static host (Netlify, Vercel, GitHub Pages, Nginx, etc.).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm run build
+# deploy the generated dist/ directory
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## License
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
-
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
-
-### Advanced Configuration
-
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
-
-### Deployment
-
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
-
-### Troubleshooting
-
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+See [`LICENSE`](LICENSE) for details.
