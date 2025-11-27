@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
+import Landing from './pages/Landing';
 import About from './pages/About';
 import Services from './pages/Services';
 import Doctors from './pages/Doctors';
@@ -14,7 +14,7 @@ export default function App() {
       <Navbar />
       <main className="flex-1 space-y-28 pb-24 pt-24 md:pt-32">
         <section id="home" className="scroll-mt-32">
-          <Home />
+          <Landing />
         </section>
         <section id="about" className="scroll-mt-32">
           <About />
