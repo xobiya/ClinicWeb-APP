@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
 import { services } from '../data/services';
 
@@ -42,12 +43,12 @@ export default function Services() {
             >
               Call Care Coordinator · የህክምና መምሪያ ይደውሉ
             </a>
-            <a
-              href="#appointment"
+            <Link
+              to="/appointment"
               className="inline-flex items-center rounded-full border border-primary/20 px-6 py-3 text-sm font-semibold text-primary transition hover:-translate-y-0.5 hover:border-primary/40"
             >
               Book Appointment · ቀጠሮ ይያዙ
-            </a>
+            </Link>
           </div>
         </div>
       </div>

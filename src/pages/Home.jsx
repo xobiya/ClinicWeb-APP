@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { gallery, strengths, testimonials, trustBadges } from '../data/home';
 
 const strengthIconMap = {
@@ -46,24 +47,24 @@ export default function Home() {
               Relief for joint, spine, and bone pain with compassionate doctors, precision diagnostics, and personalised rehabilitation.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#appointment"
+              <Link
+                to="/appointment"
                 className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-brand-lg transition hover:-translate-y-0.5 hover:bg-primary/90"
               >
                 Book Appointment · ቀጠሮ ይያዙ
-              </a>
+              </Link>
               <a
                 href="tel:+251111234567"
                 className="inline-flex items-center rounded-full border border-secondary/50 px-6 py-3 text-sm font-semibold text-secondary transition hover:-translate-y-0.5 hover:border-secondary/70 hover:bg-secondary/10"
               >
                 Talk to a Specialist · ለሐኪም ይደውሉ
               </a>
-              <a
-                href="#services"
+              <Link
+                to="/services"
                 className="inline-flex items-center rounded-full border border-primary/15 px-6 py-3 text-sm font-semibold text-primary transition hover:-translate-y-0.5 hover:border-primary/30"
               >
                 Get Diagnosis · ምርመራ ይጀምሩ
-              </a>
+              </Link>
             </div>
             <ul className="grid gap-3 text-sm text-ink/70 sm:grid-cols-2">
               <li className="inline-flex items-center gap-2">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { footerCtas, footerLinks } from '../data/footer';
 import { clinicAddress, clinicHours } from '../data/contact';
 
@@ -13,9 +14,9 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap gap-3 text-sm text-ink/70">
             {footerLinks.map((link) => (
-              <a key={link.href} href={link.href} className="hover:text-primary">
+              <Link key={link.to} to={link.to} className="hover:text-primary">
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

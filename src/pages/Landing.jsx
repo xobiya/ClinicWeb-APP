@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import StatsCounter from '../components/StatsCounter';
 import ProcessSteps from '../components/ProcessSteps';
 import FAQSection from '../components/FAQSection';
@@ -99,8 +100,8 @@ export default function Landing() {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="#appointment"
+                <Link
+                  to="/appointment"
                   className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-sm font-semibold text-white shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-brand-lg"
                 >
                   <span className="relative z-10">Book Appointment · ቀጠሮ ይያዙ</span>
@@ -108,7 +109,7 @@ export default function Landing() {
                     <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                   <div className="absolute inset-0 -z-0 bg-gradient-to-r from-secondary to-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </a>
+                </Link>
 
                 <a
                   href={`tel:${emergencyContact.phone}`}
@@ -213,15 +214,15 @@ export default function Landing() {
                     
                     <p className="text-sm leading-relaxed text-ink/70">{service.description}</p>
                     
-                    <a
-                      href="#services"
+                    <Link
+                      to="/services"
                       className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-300 group-hover:gap-3"
                     >
                       Learn More
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
                         <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               );
@@ -454,22 +455,22 @@ export default function Landing() {
               </p>
               
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <a
-                  href="#appointment"
+                <Link
+                  to="/appointment"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-white bg-white px-8 py-4 text-lg font-semibold text-primary shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:bg-slate-50"
                 >
                   Book Appointment Now
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5">
                     <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
                 
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-white px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
                 >
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>
