@@ -1,9 +1,9 @@
 export const footerLinks = [
-  { href: '#home', label: 'Home · መነሻ' },
-  { href: '#about', label: 'About · ስለ እኛ' },
-  { href: '#services', label: 'Services · አገልግሎቶች' },
-  { href: '#appointment', label: 'Appointments · ቀጠሮ' },
-  { href: '#contact', label: 'Contact · እውቂያ' }
+  { to: '/', label: 'Home · መነሻ', sectionId: 'home' },
+  { to: '/about', label: 'About · ስለ እኛ', sectionId: 'about' },
+  { to: '/services', label: 'Services · አገልግሎቶች', sectionId: 'services' },
+  { to: '/appointment', label: 'Appointments · ቀጠሮ', sectionId: 'appointment' },
+  { to: '/contact', label: 'Contact · እውቂያ', sectionId: 'contact' }
 ];
 
 export const footerCtas = [

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ServiceCard({ badge, title, image, imageAlt, children }) {
   return (
@@ -22,15 +23,15 @@ export default function ServiceCard({ badge, title, image, imageAlt, children })
         <p className="text-sm leading-relaxed text-ink/70">{children}</p>
         
         <div className="mt-auto pt-4">
-          <a
-            href="#appointment"
+          <Link
+            to="/appointment"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-300 group-hover:gap-3"
           >
             Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
               <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DoctorCard from '../components/DoctorCard';
 import { doctors } from '../data/doctors';
 
@@ -57,15 +58,15 @@ export default function Doctors() {
                 <div className="absolute inset-0 -z-0 bg-gradient-to-r from-primary to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </a>
 
-              <a
-                href="#appointment"
+              <Link
+                to="/appointment"
                 className="inline-flex items-center gap-2 rounded-full border-2 border-primary/50 bg-white px-8 py-4 text-lg font-semibold text-primary transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary/5 hover:shadow-xl"
               >
                 Book Appointment · ቀጠሮ ይያዙ
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5">
                   <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
