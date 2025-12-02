@@ -1,45 +1,45 @@
 {
   "common": {
     "brand": {
-      "primary": "BoneCare Clinic",
-      "secondary": "BoneCare Clinic"
+      "primary": "ቦንኬር ክሊኒክ",
+      "secondary": "ቦንኬር ክሊኒክ"
     },
     "cta": {
-      "bookAppointment": "Book Appointment",
-      "talkToSpecialist": "Talk to a Specialist",
-      "getDiagnosis": "Get Diagnosis",
-      "callClinic": "Call Clinic",
-      "whatsapp": "WhatsApp",
-      "callCareCoordinator": "Call Care Coordinator",
-      "contactUs": "Contact Us",
-      "bookAppointmentNow": "Book Appointment Now",
-      "learnMore": "Learn More",
-      "emergencyCall": "Emergency Call"
+      "bookAppointment": "ቀጠሮ ይያዙ",
+      "talkToSpecialist": "ለሐኪም ይደውሉ",
+      "getDiagnosis": "ምርመራ ይጀምሩ",
+      "callClinic": "ይደውሉ",
+      "whatsapp": "ዋትስአፕ",
+      "callCareCoordinator": "የህክምና መምሪያ ይደውሉ",
+      "contactUs": "እኛን ያነጋግሩ",
+      "bookAppointmentNow": "ቀጠሮ ይያዙ",
+      "learnMore": "ተጨማሪ ይወቁ",
+      "emergencyCall": "የአደጋ ጊዜ ጥሪ"
     },
-    "menu": "Menu",
+    "menu": "ማውጫ",
     "language": {
-      "toggle": "አማርኛ",
-      "current": "English"
+      "toggle": "English",
+      "current": "አማርኛ"
     }
   },
   "nav": {
     "links": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "doctors": "Doctors",
-      "appointment": "Appointment",
-      "contact": "Contact"
+      "home": "መነሻ",
+      "about": "ስለ እኛ",
+      "services": "አገልግሎቶች",
+      "doctors": "ሐኪሞች",
+      "appointment": "ቀጠሮ",
+      "contact": "እውቂያ"
     }
   },
   "footer": {
-    "description": "Specialised orthopedic, spine, and joint care centred on Ethiopian families.",
-    "rights": "© {{year}} BoneCare Clinic. All rights reserved.",
-    "addressLabel": "Clinic Address",
+    "description": "ከኢትዮጵያ ቤተሰቦች ጋር የሚዋሃዱ የአጥንት፣ የጀርባ እና የጅማት ሙዚቃዊ እንክብካቤ.",
+    "rights": "© {{year}} ቦንኬር ክሊኒክ። መብቶች በሙሉ የተጠበቁ ናቸው።",
+    "addressLabel": "የክሊኒኩ አድራሻ",
     "hours": {
-      "weekday": "Weekdays",
-      "weekend": "Weekends",
-      "emergency": "Emergency"
+      "weekday": "ቀን ስራ",
+      "weekend": "ቅዳሜ/እሁድ",
+      "emergency": "የአደጋ ጊዜ"
     }
   },
   "home": {

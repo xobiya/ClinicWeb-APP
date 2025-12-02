@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function AppointmentForm() {
   const [form, setForm] = useState({ name: '', age: '', phone: '', symptoms: '', date: '' });
   const [status, setStatus] = useState(null);
+  const { t } = useTranslation();
+  const formContent = t('appointment.form', { returnObjects: true }) || {};
+  const statusCopy = formContent.status || {};
+  const fields = formContent.fields || {};
+  const buttons = formContent.buttons || {};
+  const note = formContent.note || '';
 
   function handleChange(e) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -11,11 +18,14 @@ export default function AppointmentForm() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!form.name || !form.phone || !form.date) {
-      setStatus({ type: 'error', message: 'Please complete required fields / እባክዎን ያስፈልጉትን መረጃ ይሙሉ.' });
+      setStatus({ type: 'error', message: statusCopy.error || 'Please complete required fields / እባክዎን ያስፈልጉትን መረጃ ይሙሉ.' });
       return;
     }
 
-    setStatus({ type: 'success', message: 'Appointment request submitted. We will contact you shortly. / የቀጠሮ ጥያቄዎ ተቀብሏል። በቅርቡ እናደውልዎታለን።' });
+    setStatus({
+      type: 'success',
+      message: statusCopy.success || 'Appointment request submitted. We will contact you shortly. / የቀጠሮ ጥያቄዎ ተቀብሏል። በቅርቡ እናደውልዎታለን።'
+    });
     setForm({ name: '', age: '', phone: '', symptoms: '', date: '' });
   }
 
@@ -37,53 +47,53 @@ export default function AppointmentForm() {
       )}
 
       <label className="block text-sm font-medium text-ink/80">
-        Name * / ስም
+        {fields.name?.label || 'Name * / ስም'}
         <input
           name="name"
           value={form.name}
           onChange={handleChange}
           className={fieldClass}
-          placeholder="Selamawit Bekele"
+          placeholder={fields.name?.placeholder || 'Selamawit Bekele'}
         />
       </label>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block text-sm font-medium text-ink/80">
-          Age / እድሜ
+          {fields.age?.label || 'Age / እድሜ'}
           <input
             name="age"
             value={form.age}
             onChange={handleChange}
             className={fieldClass}
-            placeholder="32"
+            placeholder={fields.age?.placeholder || '32'}
           />
         </label>
         <label className="block text-sm font-medium text-ink/80">
-          Contact Number * / ስልክ ቁጥር
+          {fields.phone?.label || 'Contact Number * / ስልክ ቁጥር'}
           <input
             name="phone"
             value={form.phone}
             onChange={handleChange}
             className={fieldClass}
-            placeholder="+251 91 123 4567"
+            placeholder={fields.phone?.placeholder || '+251 91 123 4567'}
           />
         </label>
       </div>
 
       <label className="block text-sm font-medium text-ink/80">
-        Symptoms / Issue · ምልክቶች
+        {fields.symptoms?.label || 'Symptoms / Issue · ምልክቶች'}
         <textarea
           name="symptoms"
           value={form.symptoms}
           onChange={handleChange}
           className={`${fieldClass} resize-none`}
           rows={4}
-          placeholder="Describe pain, injury, or mobility concerns"
+          placeholder={fields.symptoms?.placeholder || 'Describe pain, injury, or mobility concerns'}
         />
       </label>
 
       <label className="block text-sm font-medium text-ink/80">
-        Preferred Date * / የሚመረጡት ቀን
+        {fields.date?.label || 'Preferred Date * / የሚመረጡት ቀን'}
         <input
           type="date"
           name="date"
@@ -99,16 +109,16 @@ export default function AppointmentForm() {
             type="submit"
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-brand-lg transition hover:-translate-y-0.5 hover:bg-primary/90"
           >
-            Book Appointment · ቀጠሮ ይያዙ
+            {buttons.submit || 'Book Appointment · ቀጠሮ ይያዙ'}
           </button>
           <a
             href="tel:+251111234567"
             className="inline-flex items-center justify-center rounded-full border border-secondary/40 px-6 py-3 text-sm font-semibold text-secondary transition hover:-translate-y-0.5 hover:border-secondary/60 hover:bg-secondary/10"
           >
-            Talk to the Specialist · ለሐኪም ይደውሉ
+            {buttons.callSpecialist || 'Talk to the Specialist · ለሐኪም ይደውሉ'}
           </a>
         </div>
-        <div className="text-xs uppercase tracking-wider text-ink/50">* Required fields · አስፈላጊ ስፍራዎች</div>
+        <div className="text-xs uppercase tracking-wider text-ink/50">{note || '* Required fields · አስፈላጊ ስፍራዎች'}</div>
       </div>
     </form>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { gallery, strengths, testimonials, trustBadges } from '../data/home';
+import { useTranslation } from 'react-i18next';
 
 const strengthIconMap = {
   check: () => (
@@ -30,6 +30,12 @@ const strengthIconMap = {
 };
 
 export default function Home() {
+  const { t } = useTranslation();
+  const trustBadges = t('home.trustBadges', { returnObjects: true });
+  const strengths = t('home.strengths', { returnObjects: true });
+  const testimonials = t('home.testimonials.items', { returnObjects: true });
+  const gallery = t('home.gallery.items', { returnObjects: true });
+  const heroBenefits = t('home.hero.benefits', { returnObjects: true });
 
   return (
     <div className="space-y-28">
@@ -37,52 +43,44 @@ export default function Home() {
         <div className="container grid items-center gap-12 rounded-[28px] border border-slate-200/70 bg-card p-10 shadow-card lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-7">
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Advanced orthopedic care · የተሻሻለ የአጥንት እንክብካቤ
+              {t('home.hero.badge')}
             </span>
             <h1 className="text-4xl font-semibold leading-tight md:text-5xl">
-              Your trusted orthopedic & bone care specialist
+              {t('home.hero.title')}
             </h1>
-            <p className="text-base text-ink/60">እርስዎ የሚታመኑት የአጥንት እና የጅማት ስፔሻሊስት፣ በአዲስ አበባ የሚገኘው የሙያ ባለሙያ ቡድን ነን።</p>
+            <p className="text-base text-ink/60">{t('home.hero.intro')}</p>
             <p className="max-w-xl text-lg leading-relaxed text-ink/70">
-              Relief for joint, spine, and bone pain with compassionate doctors, precision diagnostics, and personalised rehabilitation.
+              {t('home.hero.description')}
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/appointment"
                 className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-brand-lg transition hover:-translate-y-0.5 hover:bg-primary/90"
               >
-                Book Appointment · ቀጠሮ ይያዙ
+                {t('common.cta.bookAppointment')}
               </Link>
               <a
                 href="tel:+251111234567"
                 className="inline-flex items-center rounded-full border border-secondary/50 px-6 py-3 text-sm font-semibold text-secondary transition hover:-translate-y-0.5 hover:border-secondary/70 hover:bg-secondary/10"
               >
-                Talk to a Specialist · ለሐኪም ይደውሉ
+                {t('common.cta.talkToSpecialist')}
               </a>
               <Link
                 to="/services"
                 className="inline-flex items-center rounded-full border border-primary/15 px-6 py-3 text-sm font-semibold text-primary transition hover:-translate-y-0.5 hover:border-primary/30"
               >
-                Get Diagnosis · ምርመራ ይጀምሩ
+                {t('common.cta.getDiagnosis')}
               </Link>
             </div>
             <ul className="grid gap-3 text-sm text-ink/70 sm:grid-cols-2">
-              <li className="inline-flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-xs font-semibold text-secondary">01</span>
-                Same-day imaging & consultation · በዚያኑ ቀን ምርመራ እና ምክር
-              </li>
-              <li className="inline-flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-xs font-semibold text-secondary">02</span>
-                Dedicated recovery concierge · የመድሃኒት እና መከታተያ አገልግሎት
-              </li>
-              <li className="inline-flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-xs font-semibold text-secondary">03</span>
-                Hybrid in-clinic + digital rehab · በክሊኒክ ውስጥ እና በዲጂታል የሚከናወን መከታተያ
-              </li>
-              <li className="inline-flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-xs font-semibold text-secondary">04</span>
-                Transparent treatment pricing · ግልጽ የክፍያ መረጃ
-              </li>
+              {heroBenefits.map((benefit, index) => (
+                <li key={benefit} className="inline-flex items-center gap-2">
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-xs font-semibold text-secondary">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  {benefit}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -95,8 +93,8 @@ export default function Home() {
               />
             </div>
             <div className="absolute bottom-6 right-6 rounded-[16px] border border-slate-200/80 bg-card/90 p-4 text-xs font-medium text-ink/70 shadow-card">
-              <div className="text-sm font-semibold text-ink">Trusted by 12,000+ patients · በ12,000+ ታካሚዎች የሚታመን</div>
-              <div className="mt-1 text-xs uppercase tracking-[0.3em] text-secondary">Compassion · Precision · Results · ርኅራኄ · ትክክለኛነት · ውጤት</div>
+              <div className="text-sm font-semibold text-ink">{t('home.hero.figure.title')}</div>
+              <div className="mt-1 text-xs uppercase tracking-[0.3em] text-secondary">{t('home.hero.figure.caption')}</div>
             </div>
           </div>
         </div>
@@ -117,12 +115,10 @@ export default function Home() {
         <div className="container space-y-10">
           <div className="space-y-3 text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Why choose BoneCare · ለምን ቦንኬርን ይመርጣሉ?
+              {t('home.why.badge')}
             </span>
-            <h2 className="text-3xl font-semibold md:text-4xl">Expert care, designed around your recovery goals</h2>
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-ink/70">
-              We combine hospital-grade technology with personalised attention so every visit feels calm, clear, and reassuring. በሆስፒታል ደረጃ ቴክኖሎጂ እና በግል ትኩረት እያንዳንዱ ጉብኝት ጸጥታ እና የሚያሳርፍ ሆኖ እንዲሰማዎት እንደምንያደርገው ይወቁ።
-            </p>
+            <h2 className="text-3xl font-semibold md:text-4xl">{t('home.why.title')}</h2>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-ink/70">{t('home.why.description')}</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -147,12 +143,10 @@ export default function Home() {
         <div className="container rounded-[28px] border border-slate-200/70 bg-card p-12 shadow-card">
           <div className="space-y-4 text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-secondary">
-              Testimonials
+              {t('home.testimonials.badge')}
             </span>
-            <h2 className="text-3xl font-semibold md:text-4xl">Patients trust us with their movement</h2>
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-ink/70">
-              Hear how people regained comfort, confidence, and strength with our coordinated orthopedic programs.
-            </p>
+            <h2 className="text-3xl font-semibold md:text-4xl">{t('home.testimonials.title')}</h2>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-ink/70">{t('home.testimonials.description')}</p>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -176,12 +170,10 @@ export default function Home() {
         <div className="container space-y-6">
           <div className="space-y-3 text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Clinic gallery
+              {t('home.gallery.badge')}
             </span>
-            <h2 className="text-3xl font-semibold md:text-4xl">A calm, modern space designed for healing</h2>
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-ink/70">
-              Explore our welcoming reception, treatment rooms, and physiotherapy studios before you arrive.
-            </p>
+            <h2 className="text-3xl font-semibold md:text-4xl">{t('home.gallery.title')}</h2>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-ink/70">{t('home.gallery.description')}</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {gallery.map((item) => (
