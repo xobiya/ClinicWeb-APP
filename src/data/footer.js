@@ -1,20 +1,20 @@
 export const footerLinks = [
-  { to: '/', label: 'Home · መነሻ', sectionId: 'home' },
-  { to: '/about', label: 'About · ስለ እኛ', sectionId: 'about' },
-  { to: '/services', label: 'Services · አገልግሎቶች', sectionId: 'services' },
-  { to: '/appointment', label: 'Appointments · ቀጠሮ', sectionId: 'appointment' },
-  { to: '/contact', label: 'Contact · እውቂያ', sectionId: 'contact' }
+  { to: '/', sectionId: 'home', labelKey: 'nav.links.home' },
+  { to: '/about', sectionId: 'about', labelKey: 'nav.links.about' },
+  { to: '/services', sectionId: 'services', labelKey: 'nav.links.services' },
+  { to: '/appointment', sectionId: 'appointment', labelKey: 'nav.links.appointment' },
+  { to: '/contact', sectionId: 'contact', labelKey: 'nav.links.contact' }
 ];
 
 export const footerCtas = [
   {
     href: 'tel:+251111234567',
-    label: 'Call Clinic · ይደውሉ',
+    labelKey: 'common.cta.callClinic',
     primary: true
   },
   {
     href: 'https://wa.me/251911234567',
-    label: 'WhatsApp',
+    labelKey: 'common.cta.whatsapp',
     primary: false
   }
 ];

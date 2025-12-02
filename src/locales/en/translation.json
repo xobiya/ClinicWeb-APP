@@ -1,0 +1,45 @@
+{
+  "common": {
+    "brand": {
+      "primary": "BoneCare Clinic",
+      "secondary": "BoneCare Clinic"
+    },
+    "cta": {
+      "bookAppointment": "Book Appointment",
+      "talkToSpecialist": "Talk to a Specialist",
+      "getDiagnosis": "Get Diagnosis",
+      "callClinic": "Call Clinic",
+      "whatsapp": "WhatsApp",
+      "callCareCoordinator": "Call Care Coordinator",
+      "contactUs": "Contact Us",
+      "bookAppointmentNow": "Book Appointment Now",
+      "learnMore": "Learn More",
+      "emergencyCall": "Emergency Call"
+    },
+    "menu": "Menu",
+    "language": {
+      "toggle": "አማርኛ",
+      "current": "English"
+    }
+  },
+  "nav": {
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "doctors": "Doctors",
+      "appointment": "Appointment",
+      "contact": "Contact"
+    }
+  },
+  "footer": {
+    "description": "Specialised orthopedic, spine, and joint care centred on Ethiopian families.",
+    "rights": "© {{year}} BoneCare Clinic. All rights reserved.",
+    "addressLabel": "Clinic Address",
+    "hours": {
+      "weekday": "Weekdays",
+      "weekend": "Weekends",
+      "emergency": "Emergency"
+    }
+  }
+}

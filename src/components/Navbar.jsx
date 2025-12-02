@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { navLinks } from '../data/navigation';
 
 export default function Navbar() {
   const mobileMenuRef = useRef(null);
+  const { t, i18n } = useTranslation();
 
   function handleMobileNavigate() {
     if (mobileMenuRef.current) {
@@ -11,12 +13,19 @@ export default function Navbar() {
     }
   }
 
+  function handleLanguageToggle() {
+    const current = i18n.resolvedLanguage || i18n.language;
+    const next = current && current.startsWith('am') ? 'en' : 'am';
+    i18n.changeLanguage(next);
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-base/95 backdrop-blur-lg">
       <div className="container flex items-center justify-between py-4">
         <Link to="/" className="text-lg font-semibold text-ink">
-          BoneCare <span className="text-primary">Clinic</span>
-          <span className="ml-2 text-sm font-normal text-ink/70">· ቦንኬር ክሊኒክ</span>
+          {t('common.brand.primary')}
+          <span className="ml-2 text-sm font-normal text-primary">•</span>
+          <span className="ml-2 text-sm font-normal text-ink/70">{t('common.brand.secondary')}</span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -31,14 +40,14 @@ export default function Navbar() {
                 }`
               }
             >
-              {link.label}
+              {t(link.labelKey)}
             </NavLink>
           ))}
         </nav>
 
         <details ref={mobileMenuRef} className="relative md:hidden">
           <summary className="list-none cursor-pointer rounded-full border border-slate-200/80 px-4 py-2 text-sm font-medium text-ink/80 transition hover:border-primary/40 hover:text-primary">
-            Menu ·
+            {t('common.menu')}
           </summary>
           <div className="absolute right-0 mt-3 w-52 rounded-2xl border border-slate-200/80 bg-card/95 p-2 shadow-card">
             {navLinks.map((link) => (
@@ -53,7 +62,7 @@ export default function Navbar() {
                   }`
                 }
               >
-                {link.label}
+                {t(link.labelKey)}
               </NavLink>
             ))}
             <NavLink
@@ -65,12 +74,29 @@ export default function Navbar() {
                 }`
               }
             >
-              Book Appointment
+              {t('common.cta.bookAppointment')}
             </NavLink>
+            <button
+              type="button"
+              onClick={() => {
+                handleMobileNavigate();
+                handleLanguageToggle();
+              }}
+              className="mt-2 block w-full rounded-xl border border-slate-200/80 px-3 py-2 text-center text-sm font-medium text-ink/80 transition hover:border-primary/40 hover:text-primary"
+            >
+              {t('common.language.toggle')}
+            </button>
           </div>
         </details>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <button
+            type="button"
+            onClick={handleLanguageToggle}
+            className="inline-flex items-center rounded-full border border-slate-200/80 px-4 py-2 text-sm font-medium text-ink/80 transition hover:border-primary/40 hover:text-primary"
+          >
+            {t('common.language.toggle')}
+          </button>
           <NavLink
             to="/appointment"
             className={({ isActive }) =>
@@ -79,7 +105,7 @@ export default function Navbar() {
               }`
             }
           >
-            Book Appointment
+            {t('common.cta.bookAppointment')}
           </NavLink>
         </div>
       </div>
